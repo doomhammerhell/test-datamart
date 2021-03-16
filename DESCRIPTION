@@ -14,5 +14,5 @@ Imports: RJSONIO, XML, RCurl, base64, gsubfn, methods, markdown
 LazyLoad: yes
 Packaged: 2014-10-12 17:52:33 UTC; weinert
 NeedsCompilation: no
-Repository: CRAN
-Date/Publication: 2014-10-13 08:05:09
+Repository: doomhammerhell
+Date/Publication: 2021-03-16 12:05:09
