@@ -1,0 +1,169 @@
+datamart Version 0.5.1
+------------------------------------------------------------------------------
+
+SIGNIFICANT USER-VISIBLE CHANGES
+
+*  The Mashup class has been rewritten. The changes are not backward compatible. The new
+   implementation paves the way to a make-like, declarative data build process.
+   
+*  The Blogger class has been rewritten in order to use the OAuth2 interface for posting.
+
+*  The InternalData class has been rewritten. The changes are not backward compatible. The
+   resource name(s) for dataset is/are now predefined through the dataset name(s). Hence it is
+   not possible to set the resource name elsewhere. This was necessary as internal datasets
+   may comprise several data entities.
+   
+*  The Xsparql2 class with its constructor xsparql2 has been renamed to Xsparql/xsparql. At
+   this experimental stage, the classes and interfaces are still changing, breaking existing
+   code. Hence naming new versions of an idea differently is not necessary in my opinion.
+   
+*  The UrlData3 class has been renamed to UrlData.
+
+NEW FEATURES
+
+*  a class CsvData for administrating tabular data: an update mechanism, keeping metadata on 
+   the dataset and on dataset columns.
+
+MINOR FEATURES
+
+*  New unit sets for area and volume are introduced. Also, the self-tests for the uconv function
+   have been revised.
+
+*  New class GoogleOAuth2 which enables connection with Google services such as Blogger. It 
+   manages a file with the access token, so that acquiring an access token through authentication 
+   is necessary only once.
+   
+*  New XSPARQL examples on power plants: openei() and enipedia()
+
+*  The gapminder() datamart, which was removed for the last few versions, has returned.
+
+*  improved documentation: partly due to new version of roxygen, partly due to usage of href
+   instead of url, added @seealso where appropriate
+
+DEPRECATED AND DEFUNCT
+
+*  removed the unit set for temperature. Since the unit conversion between degree F and degree C 
+   is affine but not homogen, it is not easy to fit it in the existing code. May return in later 
+   version, but I need to rethink the concept first.
+   
+*  removed siunit and mySPARQL documentation. These are internal functions.
+
+
+datamart Version 0.4.2
+------------------------------------------------------------------------------
+
+SIGNIFICANT USER-VISIBLE CHANGES
+
+*  The data object returned by sourceforge() now has only one resource "SourceforgeStats" and additional parameters
+   from and to. The sourceforge() function accepts a optional clss parameter.
+   
+*  The data object returned by city_coords() now has only one resource "CityCoordinates" and takes additional parameters
+   city and country (optional, default DE).
+
+NEW FEATURES
+
+*  A new generic with the name "put" is introduced.
+
+*  A new generic "meta" for Location classes is introduced and implemented for Blogger and DirectoryLocation.
+
+
+MINOR FEATURES
+
+*  new UrlData3 example netConnectGermany
+
+*  new Mashup / UrlData3 example eurostat_web
+
+*  new UrlData3 example oddsportal
+
+*  Bugfix for uconv, check for valid temperature units added.
+
+*  Bugfix for strsubst, unhelpful error message when one escape sequence is invalid fixed..
+
+*  Fixed test for strsubst. Added minimal first test for uconv.
+
+*  Worked on the documentation, it is still not satisfactory.
+
+*  Moved "Depends" to "Imports", removed dependency on RSQLite package.
+
+
+DEPRECATED AND DEFUNCT
+
+*  urldata and urldata2 have been removed. Instead, urldata3 is the way to go. The first official version
+   of the package (1.0) will rename urldata3 to urldata.
+   
+*  The naming "build" was not a good idea and has been removed. It is now called "put".
+
+*  The unitsets CrudeOil and GaseousFuels have been removed. They are now part of "Energy". The code for the "uconv"
+   function has been rewritten. 
+
+*  The mauna_loa, tour_de_france, gscholar and gapminder dataset have been removed. First need to look into into it. May return in later versions.
+
+*  The DataStore concept has been removed. The "put" generic will replace that.
+
+
+datamart Version 0.3.2
+------------------------------------------------------------------------------
+
+SIGNIFICANT USER-VISIBLE CHANGES
+
+*  The InternalData function has been rewritten and may behave different to prior versions.
+
+NEW FEATURES
+
+*  A build mechanism with the new generic build is introduced. The build method takes at least a Target object and 
+   a Location object. Examples for targets are swvreport and mdreport; examples for locations are DirectoryLocation and Blogger.
+   
+*  new function uconv to convert between measurement units. 
+
+
+MINOR FEATURES
+
+*  new UrlData example cityCoords
+
+*  simplified constructor for class DataStoreDriver
+
+*  first tests cases added
+
+*  NEWS file added
+
+DEPRECATED AND DEFUNCT
+
+*  removed function wikisites
+
+datamart Version 0.2.0
+------------------------------------------------------------------------------
+
+NEW FEATURES
+
+* new fundamental class UrlData, with examples mauna_loa, iwv_online, be_bathing_water_quality,
+  sourceforge, gapminder, tourdefrance 
+
+* new fundamental class Mashup, with experimental example eurostat
+
+* mechanism for persistence, classes DataStoreDriver and SQLiteDataStore with adapted generics, and
+  new generics scrape and scrapes
+
+MINOR FEATURES
+
+* class GScholar for querying Google scholar (inherited from UrlData), with example
+  statsoft_popularity 
+
+* some string utility functions added, strhead, strtail, strencrypt, strdecrypt, strsubst, strparse, strrecode, strcap
+
+* mem.info introspection function
+
+
+datamart Version 0.1.0
+------------------------------------------------------------------------------
+
+NEW FEATURES
+
+* base class Xdata, with query and queries generics 
+
+* InternalData as one workhorse, Evs as example
+
+* Xsparql as second workhorse, Dbpedia as example
+
+* Twttr example
+
+
